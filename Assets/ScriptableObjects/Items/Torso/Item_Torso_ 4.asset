@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Item_Torso_ 4
   m_EditorClassIdentifier: 
   id: 34
-  sprite: {fileID: 21300000, guid: f5e38fc0746afdb408f3af29c6c737cc, type: 3}
+  sprite: {fileID: 21300000, guid: 3d9056df586b6024fbc5b9fee2433eef, type: 3}
   cost: 20
   objectType: 1

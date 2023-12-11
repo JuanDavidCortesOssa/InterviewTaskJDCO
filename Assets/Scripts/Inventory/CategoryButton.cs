@@ -5,44 +5,19 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class CategoryButton : MonoBehaviour
+public class CategoryButton : SelectableButton
 {
-    [SerializeField] private InventoryCategoryHandler inventoryCategoryHandler;
     [SerializeField] private GameObject itemsPanel;
-    private Image _image;
-    private Button _button;
 
-    private void Start()
+    public override void SetSelected()
     {
-        InitializeVariables();
-        AddListeners();
-    }
-
-    private void InitializeVariables()
-    {
-        _image = GetComponent<Image>();
-        _button = GetComponent<Button>();
-    }
-
-    private void AddListeners()
-    {
-        _button.onClick.AddListener(TryChangeCategory);
-    }
-
-    public void SetSelected()
-    {
+        base.SetSelected();
         itemsPanel.SetActive(true);
-        _image.color = Color.green;
     }
 
-    public void Unselect()
+    public override void Unselect()
     {
+        base.Unselect();
         itemsPanel.SetActive(false);
-        _image.color = Color.white;
-    }
-
-    private void TryChangeCategory()
-    {
-        inventoryCategoryHandler.ChangeObjectType(this);
     }
 }
