@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class SelectableButtonsHandler : MonoBehaviour
 {
-    private SelectableButton _currentSelectedButton;
+    [SerializeField] private SelectableButton _currentSelectedButton;
 
     public void ChangeObjectType(SelectableButton selectableButton)
     {

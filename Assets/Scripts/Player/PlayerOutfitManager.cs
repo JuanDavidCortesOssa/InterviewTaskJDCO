@@ -9,9 +9,12 @@ public class PlayerOutfitManager : MonoBehaviour
     [SerializeField] private SpriteRenderer torsoSpriteRenderer;
     [SerializeField] private SpriteRenderer pelvisSpriteRenderer;
 
+    [SerializeField] private List<int> defaultPlayerSkins;
+
     private void Start()
     {
         AddListeners();
+        InitializePlayerDefaultSkin();
     }
 
     private void OnDisable()
@@ -46,6 +49,14 @@ public class PlayerOutfitManager : MonoBehaviour
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    private void InitializePlayerDefaultSkin()
+    {
+        foreach (var skinId in defaultPlayerSkins)
+        {
+            ItemSelectionChannel.OnItemInitialized(skinId);
         }
     }
 }

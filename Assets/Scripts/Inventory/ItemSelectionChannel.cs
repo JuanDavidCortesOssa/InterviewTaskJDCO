@@ -11,4 +11,11 @@ public static class ItemSelectionChannel
     {
         ItemSelected?.Invoke(obj);
     }
+    
+    public static event Action<int> ItemInitialized;
+
+    public static void OnItemInitialized(int obj)
+    {
+        ItemInitialized?.Invoke(obj);
+    }
 }

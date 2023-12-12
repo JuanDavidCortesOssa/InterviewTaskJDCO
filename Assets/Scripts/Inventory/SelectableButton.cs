@@ -8,37 +8,30 @@ public abstract class SelectableButton : MonoBehaviour
 {
     public SelectableButtonsHandler selectableButtonsHandler;
 
-    private Image _image;
-    private Button _button;
+    [SerializeField] private Image image;
+    [SerializeField] private Button button;
 
     private void Start()
     {
-        InitializeVariables();
         AddListeners();
     }
 
-    private void InitializeVariables()
+    protected virtual void AddListeners()
     {
-        _image = GetComponent<Image>();
-        _button = GetComponent<Button>();
-    }
-
-    private void AddListeners()
-    {
-        _button.onClick.AddListener(TryToSelect);
+        button.onClick.AddListener(TryToSelect);
     }
 
     public virtual void SetSelected()
     {
-        _image.color = Color.green;
+        image.color = Color.green;
     }
 
     public virtual void Unselect()
     {
-        _image.color = Color.white;
+        image.color = Color.white;
     }
 
-    protected virtual void TryToSelect()
+    public virtual void TryToSelect()
     {
         selectableButtonsHandler.ChangeObjectType(this);
     }

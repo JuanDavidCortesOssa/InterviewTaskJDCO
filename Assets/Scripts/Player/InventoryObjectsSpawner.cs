@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 
 public class InventoryObjectsSpawner : MonoBehaviour
 {
+    [SerializeField] private InventoryManager inventoryManager;
     [SerializeField] private GameObject inventoryItemButtonPrefab;
     [SerializeField] private SelectableButtonsHandler selectableButtonsHandler;
     [SerializeField] private Transform parentTransform;
@@ -34,6 +35,7 @@ public class InventoryObjectsSpawner : MonoBehaviour
         if (inventoryItemButton != null)
         {
             inventoryItemButton.Setup(id, sprite, selectableButtonsHandler);
+            inventoryManager.inventoryItemButtons.Add(inventoryItemButton);
         }
         else
         {

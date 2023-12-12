@@ -53,7 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e3a3412593093d4aa5299da5a0e2020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryCategoryHandler: {fileID: 0}
+  selectableButtonsHandler: {fileID: 0}
+  image: {fileID: 1218942005321180872}
+  button: {fileID: 7357871238722276618}
   itemsPanel: {fileID: 0}
 --- !u!222 &1218942005321180873
 CanvasRenderer:

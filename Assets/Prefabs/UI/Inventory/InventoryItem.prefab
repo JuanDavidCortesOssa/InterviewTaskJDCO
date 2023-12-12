@@ -138,8 +138,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectableButtonsHandler: {fileID: 0}
+  image: {fileID: 2491991098693737388}
+  button: {fileID: 113134339610694268}
   imageIcon: {fileID: 2491991097792138317}
-  _id: 0
+  id: 0
+  isSelected: 0
 --- !u!114 &2491991098693737388
 MonoBehaviour:
   m_ObjectHideFlags: 0
