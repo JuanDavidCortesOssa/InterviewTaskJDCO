@@ -74,6 +74,7 @@ public class StoreManager : Singleton<StoreManager>
             PlayerInventory.Instance.AddToInventory(storeItem.id);
             soldItems.Add(storeItem.id, storeItem);
             shopCartItems.RemoveAt(i);
+            InventoryCommunicationChannel.OnItemPurchased(storeItem.id);
         }
     }
 
@@ -87,6 +88,7 @@ public class StoreManager : Singleton<StoreManager>
             saleableObject.SetAsSold();
             ReturnItemToStore(saleableObject.id);
             salesCartItems.RemoveAt(i);
+            InventoryCommunicationChannel.OnItemPurchased(saleableObject.id);
         }
     }
 

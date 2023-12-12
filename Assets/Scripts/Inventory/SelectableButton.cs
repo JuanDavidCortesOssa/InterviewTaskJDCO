@@ -8,10 +8,10 @@ public abstract class SelectableButton : MonoBehaviour
 {
     public SelectableButtonsHandler selectableButtonsHandler;
 
-    [SerializeField] private Image image;
-    [SerializeField] private Button button;
+    [SerializeField] protected Image image;
+    [SerializeField] protected Button button;
 
-    private void Start()
+    protected virtual void Start()
     {
         AddListeners();
     }

@@ -7,6 +7,14 @@ public class SelectableInventory : MonoBehaviour
 {
     public List<InventoryItemButton> inventoryItemButtons;
 
+    private Dictionary<int, InventoryItemButton> inventoryItemButtonsDictionary =
+        new Dictionary<int, InventoryItemButton>();
+
+    private void Start()
+    {
+        InitializeDictionary();
+    }
+
     private void OnEnable()
     {
         AddListeners();
@@ -19,12 +27,16 @@ public class SelectableInventory : MonoBehaviour
 
     private void AddListeners()
     {
-        ItemSelectionChannel.ItemInitialized += InitializeDefaultItems;
+        InventoryCommunicationChannel.ItemInitialized += InitializeDefaultItems;
+        InventoryCommunicationChannel.ItemPurchased += UnlockItemOnInventory;
+        InventoryCommunicationChannel.ItemSold += LockItemOnInventory;
     }
 
     private void RemoveListeners()
     {
-        ItemSelectionChannel.ItemInitialized -= InitializeDefaultItems;
+        InventoryCommunicationChannel.ItemInitialized -= InitializeDefaultItems;
+        InventoryCommunicationChannel.ItemPurchased -= UnlockItemOnInventory;
+        InventoryCommunicationChannel.ItemSold -= LockItemOnInventory;
     }
 
     private void InitializeDefaultItems(int objectId)
@@ -35,6 +47,33 @@ public class SelectableInventory : MonoBehaviour
             {
                 inventoryItemButton.TryToSelect();
             }
+            else
+            {
+                if (inventoryItemButton.isSelected == false)
+                {
+                    inventoryItemButton.Lock();
+                }
+            }
         }
+    }
+
+    private void InitializeDictionary()
+    {
+        foreach (var itemButton in inventoryItemButtons)
+        {
+            inventoryItemButtonsDictionary.Add(itemButton.id, itemButton);
+        }
+    }
+
+    private void UnlockItemOnInventory(int id)
+    {
+        if (!inventoryItemButtonsDictionary.TryGetValue(id, out var obj)) return;
+        obj.Unlock();
+    }
+
+    private void LockItemOnInventory(int id)
+    {
+        if (!inventoryItemButtonsDictionary.TryGetValue(id, out var obj)) return;
+        obj.Lock();
     }
 }

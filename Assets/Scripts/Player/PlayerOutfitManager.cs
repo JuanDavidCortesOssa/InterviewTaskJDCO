@@ -24,12 +24,12 @@ public class PlayerOutfitManager : MonoBehaviour
 
     private void AddListeners()
     {
-        ItemSelectionChannel.ItemSelected += SetSelectedItem;
+        InventoryCommunicationChannel.ItemSelected += SetSelectedItem;
     }
 
     private void RemoveListeners()
     {
-        ItemSelectionChannel.ItemSelected -= SetSelectedItem;
+        InventoryCommunicationChannel.ItemSelected -= SetSelectedItem;
     }
 
     private void SetSelectedItem(int id)
@@ -56,7 +56,7 @@ public class PlayerOutfitManager : MonoBehaviour
     {
         foreach (var skinId in defaultPlayerSkins)
         {
-            ItemSelectionChannel.OnItemInitialized(skinId);
+            InventoryCommunicationChannel.OnItemInitialized(skinId);
         }
     }
 }

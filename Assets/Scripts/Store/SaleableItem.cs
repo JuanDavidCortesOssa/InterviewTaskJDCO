@@ -27,6 +27,18 @@ public class SaleableItem : StoreItem
         PlayerInventory.Instance.RemoveFromInventory(id);
     }
 
+    public void LockForSelling()
+    {
+        backgroundImage.color = Color.red;
+        button.enabled = false;
+    }
+
+    public void UnlockForSelling()
+    {
+        backgroundImage.color = Color.gray;
+        button.enabled = true;
+    }
+
     public override void AddToStock()
     {
         //Add to stock
