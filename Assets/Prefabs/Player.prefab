@@ -52,6 +52,7 @@ MonoBehaviour:
   hoodSpriteRenderer: {fileID: 357524074785711077}
   torsoSpriteRenderer: {fileID: 357524077963492689}
   pelvisSpriteRenderer: {fileID: 357524076142032063}
+  defaultPlayerSkins: 0b000000150000001f000000
 --- !u!114 &434318790414773182
 MonoBehaviour:
   m_ObjectHideFlags: 0

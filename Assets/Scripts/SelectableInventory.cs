@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InventoryManager : MonoBehaviour
+public class SelectableInventory : MonoBehaviour
 {
     public List<InventoryItemButton> inventoryItemButtons;
 
