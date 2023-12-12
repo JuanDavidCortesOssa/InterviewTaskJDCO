@@ -62,6 +62,7 @@ public class StoreItem : MonoBehaviour
     {
         backgroundImage.color = Color.gray;
         button.enabled = true;
+        isSelected = false;
     }
 
     private void ToggleSelection()

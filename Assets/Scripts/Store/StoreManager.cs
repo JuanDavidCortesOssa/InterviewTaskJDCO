@@ -12,6 +12,8 @@ public class StoreManager : Singleton<StoreManager>
     [SerializeField] private StoreUI storeUI;
 
     private List<StoreItem> shopCartItems = new List<StoreItem>();
+    private Dictionary<int, StoreItem> soldItems = new Dictionary<int, StoreItem>();
+
     private List<SaleableItem> salesCartItems = new List<SaleableItem>();
 
     public void AddToShopCart(StoreItem storeItem)
@@ -67,8 +69,10 @@ public class StoreManager : Singleton<StoreManager>
 
         for (var i = shopCartItems.Count - 1; i >= 0; i--)
         {
-            shopCartItems[i].SetAsSold();
-            PlayerInventory.Instance.AddToInventory(shopCartItems[i].id);
+            var storeItem = shopCartItems[i];
+            storeItem.SetAsSold();
+            PlayerInventory.Instance.AddToInventory(storeItem.id);
+            soldItems.Add(storeItem.id, storeItem);
             shopCartItems.RemoveAt(i);
         }
     }
@@ -79,8 +83,17 @@ public class StoreManager : Singleton<StoreManager>
 
         for (var i = salesCartItems.Count - 1; i >= 0; i--)
         {
-            salesCartItems[i].SetAsSold();
-            shopCartItems.RemoveAt(i);
+            var saleableObject = salesCartItems[i];
+            saleableObject.SetAsSold();
+            ReturnItemToStore(saleableObject.id);
+            salesCartItems.RemoveAt(i);
         }
+    }
+
+    private void ReturnItemToStore(int id)
+    {
+        soldItems.TryGetValue(id, out var soldItem);
+        if (soldItem != null) soldItem.AddToStock();
+        soldItems.Remove(id);
     }
 }
