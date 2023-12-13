@@ -34,5 +34,6 @@ public abstract class SelectableButton : MonoBehaviour
     public virtual void TryToSelect()
     {
         selectableButtonsHandler.ChangeObjectType(this);
+        Debug.Log("TryToSelect");
     }
 }

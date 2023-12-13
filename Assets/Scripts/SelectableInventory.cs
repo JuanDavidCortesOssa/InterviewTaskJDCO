@@ -45,14 +45,13 @@ public class SelectableInventory : MonoBehaviour
         {
             if (inventoryItemButton.id == objectId)
             {
+                inventoryItemButton.Unlock();
                 inventoryItemButton.TryToSelect();
             }
-            else
+
+            if (!inventoryItemButton.isSelected)
             {
-                if (inventoryItemButton.isSelected == false)
-                {
-                    inventoryItemButton.Lock();
-                }
+                inventoryItemButton.Lock();
             }
         }
     }
