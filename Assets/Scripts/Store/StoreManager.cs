@@ -96,7 +96,7 @@ public class StoreManager : Singleton<StoreManager>
             saleableObject.SetAsSold();
             ReturnItemToStore(saleableObject.id);
             salesCartItems.RemoveAt(i);
-            InventoryCommunicationChannel.OnItemPurchased(saleableObject.id);
+            InventoryCommunicationChannel.OnItemSold(saleableObject.id);
         }
     }
 
