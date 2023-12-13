@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class StoreItem : MonoBehaviour
     [SerializeField] protected Image iconImage;
     [SerializeField] protected Image backgroundImage;
     [SerializeField] protected Button button;
+    [SerializeField] protected TextMeshProUGUI priceText;
 
     private bool isSelected = false;
 
@@ -30,6 +32,7 @@ public class StoreItem : MonoBehaviour
     {
         id = itemSo.id;
         price = itemSo.cost;
+        priceText.text = "$" + price;
         iconImage.sprite = itemSo.sprite;
     }
 

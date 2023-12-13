@@ -37,7 +37,7 @@ public class StoreUI : MonoBehaviour
     public void SetPurchaseText(int playerBalance, int total)
     {
         balanceText.text = "$ " + playerBalance;
-        totalText.text = "$ " + total;
+        totalText.text = "$ " + total * -1;
 
         if (playerBalance >= 0)
         {
