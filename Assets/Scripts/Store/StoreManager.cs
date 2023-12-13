@@ -16,6 +16,13 @@ public class StoreManager : Singleton<StoreManager>
 
     private List<SaleableItem> salesCartItems = new List<SaleableItem>();
 
+    public void AddToPlayerBalance(int coins)
+    {
+        playerBalance += coins;
+        temporalBalance = playerBalance;
+        UIManager.Instance.SetPlayerCoins(playerBalance);
+    }
+
     public void AddToShopCart(StoreItem storeItem)
     {
         shopCartItems.Add(storeItem);
@@ -61,6 +68,7 @@ public class StoreManager : Singleton<StoreManager>
         playerBalance = temporalBalance;
         totalPrice = 0;
         storeUI.SetPurchaseText(temporalBalance, totalPrice);
+        UIManager.Instance.SetPlayerCoins(playerBalance);
     }
 
     public void BuyItems()

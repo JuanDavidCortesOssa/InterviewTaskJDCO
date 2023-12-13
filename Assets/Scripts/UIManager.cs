@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,14 +14,22 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] private GameObject dialogPanel;
 
+    [SerializeField] private TextMeshProUGUI playerCoinsText;
+
     private void Start()
     {
         AddListeners();
+        SetPlayerCoins(StoreManager.Instance.playerBalance);
     }
 
     private void AddListeners()
     {
         inventoryButton.onClick.AddListener(ToggleInventory);
+    }
+
+    public void SetPlayerCoins(int playerCoins)
+    {
+        playerCoinsText.text = "$ " + playerCoins;
     }
 
     #region Invnetory
