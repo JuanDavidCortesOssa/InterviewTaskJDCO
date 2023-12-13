@@ -40,6 +40,16 @@ public class UIManager : Singleton<UIManager>
         inventory.SetActive(false);
     }
 
+    public void ActivateInventoryButton()
+    {
+        inventoryButton.gameObject.SetActive(true);
+    }
+
+    public void DeactivateInventoryButton()
+    {
+        inventoryButton.gameObject.SetActive(false);
+    }
+
     #endregion
 
     #region DialogPanel

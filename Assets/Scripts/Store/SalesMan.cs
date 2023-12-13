@@ -14,6 +14,7 @@ public class SalesMan : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             UIManager.Instance.OpenDialogPanel();
+            UIManager.Instance.DeactivateInventoryButton();
             InitDialogue.Invoke(helloDialogue);
         }
     }
@@ -23,6 +24,7 @@ public class SalesMan : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             UIManager.Instance.CloseDialogPanel();
+            UIManager.Instance.ActivateInventoryButton();
         }
     }
 }
