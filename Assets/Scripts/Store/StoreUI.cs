@@ -12,6 +12,7 @@ public class StoreUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI totalText;
     [SerializeField] private Button buyButton;
     [SerializeField] private Button sellButton;
+    [SerializeField] private Color buttonDefaultColor;
 
     private StoreManager _storeManager;
 
@@ -60,7 +61,7 @@ public class StoreUI : MonoBehaviour
     private void ActivatePurchase()
     {
         balanceText.color = Color.black;
-        buyButton.image.color = Color.green;
+        buyButton.image.color = buttonDefaultColor;
         buyButton.enabled = true;
     }
 }

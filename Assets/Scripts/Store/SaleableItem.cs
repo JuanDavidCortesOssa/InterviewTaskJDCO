@@ -35,7 +35,7 @@ public class SaleableItem : StoreItem
 
     public void UnlockForSelling()
     {
-        backgroundImage.color = Color.gray;
+        backgroundImage.color = Color.white;
         button.enabled = true;
     }
 

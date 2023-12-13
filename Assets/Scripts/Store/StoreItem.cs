@@ -48,19 +48,19 @@ public class StoreItem : MonoBehaviour
 
     protected virtual void Unselect()
     {
-        backgroundImage.color = Color.gray;
+        backgroundImage.color = Color.white;
         StoreManager.Instance.RemoveFromShopCart(this);
     }
 
     public virtual void SetAsSold()
     {
-        backgroundImage.color = Color.blue;
+        backgroundImage.color = Color.black;
         button.enabled = false;
     }
 
     public virtual void AddToStock()
     {
-        backgroundImage.color = Color.gray;
+        backgroundImage.color = Color.white;
         button.enabled = true;
         isSelected = false;
     }
